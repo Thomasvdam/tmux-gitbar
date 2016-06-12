@@ -46,7 +46,7 @@ TMGB_OUTREPO_STYLE=""
 
 # Load the config file
 load_config() {
-  source "${SCRIPT_DIR}/../tmux-gitbar.conf"
+  source "$HOME/.tmux-gitbar.conf"
 }
 
 # Save status bar settings so that we can reset it later
