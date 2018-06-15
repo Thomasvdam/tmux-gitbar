@@ -18,6 +18,21 @@ readonly gitstatus=$( LC_ALL=C git status --untracked-files=all --porcelain --br
 # if the status is fatal, exit now
 [[ "$?" -ne 0 ]] && exit 0
 
+readonly nocommit="## No commits yet on ";
+if [[ "${gitstatus#*$nocommit}" != "$gitstatus" ]]; then
+    printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
+      "No" \
+      "yet" \
+      "commits" \
+      0 \
+      0 \
+      0 \
+      0 \
+      0 \
+      0
+    exit 0;
+fi
+
 num_staged=0
 num_changed=0
 num_conflicts=0
